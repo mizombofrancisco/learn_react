@@ -1,0 +1,65 @@
+
+#center {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  place-content: center;
+  place-items: center;
+  flex-grow: 1;
+
+  @media (max-width: 1024px) {
+    padding: 32px 20px 24px;
+    gap: 18px;
+  }
+}
+
+
+.login-panel{
+ width: 500px;
+  height: 300px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: var(--accent);
+  background: white;
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;       /* Organiza os itens na vertical */
+  justify-content: center;      /* Centraliza na vertical */
+  align-items: center;          /* Centraliza na horizontal */
+  gap: 16px;                    /* Espaçamento automático entre os itens */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+input{
+  width:90%;
+  height: 30px;
+  color: var(--text);          /* Cor dos pontos/asteriscos ou do texto visível */
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+/* Cor do texto de dica (placeholder) */
+input::placeholder {
+  color: #9ca3af; 
+}
+
+/* Cor da borda e efeito ao clicar no input */
+input:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+button{
+  width:90%;
+  height: 40px;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 16px;
+}
