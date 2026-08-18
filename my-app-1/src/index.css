@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 /* ==========================================
-   1. Variáveis Globais e Configuração de Raiz
+   1. Variáveis Globais e Configuração (MizomboAgro - Cultivo e Entrega)
    ========================================== */
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow: rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  --text: #4a5d4e;
+  --text-h: #102614;
+  --bg: #f8faf6;
+  --border: #d4e0d5;
+  --code-bg: #edf3ee;
+  --accent: #4caf50;          /* Verde Alface / Folha vibrante */
+  --accent-dark: #1b5e20;     /* Verde Escuro Profundo */
+  --accent-bg: rgba(76, 175, 80, 0.1);
+  --accent-border: rgba(76, 175, 80, 0.3);
+  --shadow: rgba(16, 38, 20, 0.08) 0 10px 15px -3px, rgba(16, 38, 20, 0.04) 0 4px 6px -2px;
 
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
@@ -37,30 +37,23 @@
 }
 
 /* ==========================================
-   2. Modo Escuro (Dark Mode)
+   2. Modo Escuro (Foco em Verde Escuro e Floresta)
    ========================================== */
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
+    --text: #c2d6c5;
+    --text-h: #f1f8f2;
+    --bg: #0d160f;
+    --border: #1e3322;
+    --code-bg: #132216;
+    --accent: #66bb6a;          /* Verde alface luminoso para modo escuro */
+    --accent-dark: #2e7d32;
+    --accent-bg: rgba(102, 187, 106, 0.15);
+    --accent-border: rgba(102, 187, 106, 0.4);
     --shadow: rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
   }
 }
 
-/* ==========================================
-   3. Estilos Base de Elementos
-   ========================================== */
 body {
   margin: 0;
 }
@@ -76,57 +69,47 @@ body {
   box-sizing: border-box;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-}
-
-@media (max-width: 1024px) {
-  h1 {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-}
-
-@media (max-width: 1024px) {
-  h2 {
-    font-size: 20px;
-  }
-}
-
-p {
-  margin: 0;
-}
-
 /* ==========================================
-   4. Componentes de Código e Utilitários
+   3. Utilitários e Efeitos de Campo
    ========================================== */
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+.agro-card-glow {
+  position: relative;
+  transition: all 0.3s ease;
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+.agro-card-glow:hover {
+  border-color: rgba(76, 175, 80, 0.5);
+  box-shadow: 0 10px 30px -10px rgba(76, 175, 80, 0.2);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d160f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e3322;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4caf50;
+}
+
+/* Imagens de fundo com menor opacidade no escuro (mais destaque para o trigo e campos) */
+.bg-wheat-hero {
+  background-image: linear-gradient(to bottom, rgba(13, 22, 15, 0.55), rgba(13, 22, 15, 0.70)), 
+    url('https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-harvest-pattern {
+  background-image: linear-gradient(to right, rgba(13, 22, 15, 0.65), rgba(13, 22, 15, 0.55)), 
+    url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
 }
